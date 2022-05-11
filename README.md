@@ -1,0 +1,2 @@
+# _ArrayDelete
+$sExclude = "===*|---*|shader*|material*| *"  $sExclude = StringReplace($sExclude, ".", "\.") $sExclude = StringReplace($sExclude, "?", ".") $sExclude = StringReplace($sExclude, "*", ".*?")  $iIndex = 0 For $i = 0 To UBound($matArray) - 1     If NOT StringRegExp($matArray[$i], $sExclude) Then         $matArray[$iIndex] = $matArray[$i]         $iIndex += 1     EndIf Next Redim $matArray[$iIndex]   For $i = UBound($matArray) - 1 To 0 Step -1     If $matArray[$i] = "" Then         _ArrayDelete($matArray, $i)     EndIf Next  _ArrayTrim($matArray, 17, 0)
